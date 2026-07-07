@@ -23,12 +23,43 @@
 
 body {
   font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  background: linear-gradient(-45deg, #0d1117, #161b22, #0d1117, #21262d);
-  background-size: 400% 400%;
+  background:
+    radial-gradient(circle at top left, rgba(40, 96, 168, 0.28), transparent 28%),
+    radial-gradient(circle at 80% 20%, rgba(88, 166, 255, 0.16), transparent 24%),
+    linear-gradient(135deg, #030711 0%, #07111f 45%, #02040a 100%);
+  background-size: auto, auto, 400% 400%;
   color: var(--text);
   line-height: 1.6;
   overflow-x: hidden;
+  min-height: 100vh;
+  position: relative;
   animation: gradientShift 15s ease infinite;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,0.95) 1.2px, transparent 1.4px),
+    radial-gradient(circle, rgba(255,255,255,0.75) 1px, transparent 1.2px),
+    radial-gradient(circle, rgba(121, 192, 255, 0.8) 1.2px, transparent 1.4px);
+  background-size: 180px 180px, 260px 260px, 320px 320px;
+  background-position: 0 0, 80px 90px, 140px 220px;
+  opacity: 0.9;
+  animation: starTwinkle 6s ease-in-out infinite alternate;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.08), transparent 22%);
+  mix-blend-mode: screen;
 }
 
 @keyframes gradientShift {
@@ -43,6 +74,17 @@ body {
   }
 }
 
+@keyframes starTwinkle {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
 
 .background-animation {
   position: fixed;
@@ -52,65 +94,160 @@ body {
   height: 100%;
   pointer-events: none;
   z-index: -1;
+  overflow: hidden;
 }
 
 .floating-shape {
   position: absolute;
-  background: rgba(88, 166, 255, 0.1);
   border-radius: 50%;
   animation: float 20s infinite linear;
+  overflow: visible;
 }
 
 .floating-shape.shape1 {
-  width: 80px;
-  height: 80px;
-  top: 10%;
-  left: 10%;
-  animation-duration: 25s;
-  animation-delay: 0s;
+  width: 96px;
+  height: 96px;
+  top: 8%;
+  left: 8%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f1f4ff 20%, #9db9ff 60%, #4f75b8 100%);
+  box-shadow: 0 0 30px rgba(157, 185, 255, 0.35);
+  animation-duration: 28s;
 }
 
 .floating-shape.shape2 {
-  width: 60px;
-  height: 60px;
-  top: 20%;
-  right: 15%;
-  animation-duration: 30s;
-  animation-delay: 5s;
+  width: 42px;
+  height: 42px;
+  top: 18%;
+  right: 14%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.85), rgba(104, 148, 255, 0.25));
+  border: 1px solid rgba(255,255,255,0.3);
+  animation-duration: 22s;
+  animation-delay: 3s;
 }
 
 .floating-shape.shape3 {
-  width: 100px;
-  height: 100px;
-  bottom: 20%;
+  width: 70px;
+  height: 70px;
+  bottom: 22%;
   left: 20%;
-  animation-duration: 35s;
-  animation-delay: 10s;
+  background: radial-gradient(circle at 30% 30%, #fff9d8 0%, #f6c96d 28%, #7a4f1c 100%);
+  box-shadow: 0 0 24px rgba(246, 201, 109, 0.25);
+  animation-duration: 32s;
+  animation-delay: 8s;
 }
 
 .floating-shape.shape4 {
-  width: 70px;
-  height: 70px;
-  top: 50%;
-  right: 10%;
-  animation-duration: 28s;
-  animation-delay: 15s;
+  width: 24px;
+  height: 24px;
+  top: 52%;
+  right: 12%;
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 0 10px rgba(255,255,255,0.95);
+  animation-duration: 18s;
+  animation-delay: 5s;
 }
 
 .floating-shape.shape5 {
-  width: 90px;
-  height: 90px;
+  width: 160px;
+  height: 42px;
   bottom: 10%;
-  right: 20%;
-  animation-duration: 32s;
-  animation-delay: 20s;
+  right: 12%;
+  background: transparent;
+  border: none;
+  animation-duration: 24s;
+  animation-delay: 10s;
+}
+
+.floating-shape.shape5::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 100%;
+  height: 6px;
+  transform: translateY(-50%);
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.6), rgba(88, 166, 255, 0.8));
+  border-radius: 999px;
+  box-shadow: 0 0 16px rgba(88, 166, 255, 0.25);
+}
+
+.floating-shape.shape5::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  width: 26px;
+  height: 26px;
+  transform: translateY(-50%);
+  background: linear-gradient(135deg, #ffffff, #8db6ff);
+  border-radius: 0 40% 40% 0;
+  box-shadow: 0 0 14px rgba(88, 166, 255, 0.3);
 }
 
 .particle {
   position: absolute;
-  background: rgba(121, 192, 255, 0.4);
+  background: rgba(255,255,255,0.95);
+  box-shadow: 0 0 6px rgba(255,255,255,0.8);
   border-radius: 50%;
   animation: particleFloat 15s infinite ease-in-out;
+}
+
+.comet-trail {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.95), rgba(88, 166, 255, 0.8));
+  border-radius: 999px;
+  opacity: 0.8;
+  transform-origin: left center;
+  animation: cometMove 8s linear infinite;
+  pointer-events: none;
+}
+
+.comet-trail.one {
+  width: 120px;
+  top: 24%;
+  left: 12%;
+  transform: rotate(-24deg);
+}
+
+.comet-trail.two {
+  width: 90px;
+  top: 48%;
+  right: 20%;
+  transform: rotate(18deg);
+  animation-duration: 10s;
+}
+
+.rocket-silhouette {
+  position: absolute;
+  right: 4%;
+  bottom: 8%;
+  width: 120px;
+  height: 140px;
+  opacity: 0.8;
+  filter: drop-shadow(0 0 18px rgba(88,166,255,0.25));
+  pointer-events: none;
+}
+
+.rocket-silhouette::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, #8fb5ff 0%, #4a90e2 35%, #13253f 100%);
+  clip-path: polygon(50% 0%, 72% 24%, 88% 34%, 88% 54%, 72% 70%, 56% 88%, 44% 88%, 28% 70%, 12% 54%, 12% 34%, 28% 24%);
+  transform: rotate(-12deg);
+}
+
+.rocket-silhouette::after {
+  content: "";
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 42px;
+  height: 42px;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ffffff, #7cb3ff);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
 }
 
 .particle.particle1 {
