@@ -232,6 +232,33 @@ header {
   border-bottom: 2px solid rgba(88, 166, 255, 0.2);
 }
 
+.site-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.profile-photo-main {
+  width: 160px;
+  height: 160px;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #58a6ff;
+  box-shadow: 0 8px 25px rgba(88, 166, 255, 0.2);
+  flex-shrink: 0;
+  display: block;
+}
+
+.header-content {
+  max-width: 560px;
+}
+
 header h1 {
   font-size: 2.5rem;
   color: var(--primary);
@@ -640,9 +667,40 @@ li {
   100% { transform: scale(1) rotate(0deg); }
 }
 
+@media (max-width: 1024px) {
+  .container {
+    max-width: 900px;
+    padding: 1.25rem;
+  }
+
+  .hero {
+    padding: 1.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
 @media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.2rem 1rem 0.8rem;
+  }
+
+  .profile-photo-main {
+    width: 110px;
+    height: 110px;
+  }
+
   header h1 {
-    font-size: 1.8rem;
+    font-size: clamp(1.4rem, 4.5vw, 1.9rem);
+    margin-bottom: 0.25rem;
+  }
+
+  header p {
+    font-size: 0.95rem;
   }
 
   nav {
@@ -656,5 +714,62 @@ li {
 
   .container {
     padding: 1rem;
+  }
+
+  .hero {
+    padding: 1.25rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .project-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card,
+  .project-card,
+  .resume-section {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav {
+    justify-content: flex-start;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  nav a {
+    white-space: nowrap;
+  }
+
+  .profile-photo-main {
+    width: 96px;
+    height: 96px;
+  }
+
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    text-align: center;
+  }
+
+  .skills {
+    gap: 0.5rem;
+  }
+
+  .skill-chip {
+    font-size: 0.82rem;
+    padding: 0.4rem 0.8rem;
   }
 }
