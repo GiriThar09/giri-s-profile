@@ -105,12 +105,12 @@ body::after {
 }
 
 .floating-shape.shape1 {
-  width: 96px;
-  height: 96px;
-  top: 8%;
-  left: 8%;
-  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f1f4ff 20%, #9db9ff 60%, #4f75b8 100%);
-  box-shadow: 0 0 30px rgba(157, 185, 255, 0.35);
+  width: 110px;
+  height: 110px;
+  top: 7%;
+  left: 6%;
+  background: radial-gradient(circle at 35% 35%, #ffffff 0%, #f3f7ff 18%, #bfd3ff 40%, #7d95c9 70%, #3c5278 100%);
+  box-shadow: 0 0 40px rgba(157, 185, 255, 0.45), inset 0 0 24px rgba(255,255,255,0.22);
   animation-duration: 28s;
 }
 
@@ -194,38 +194,39 @@ body::after {
 
 .comet-trail {
   position: absolute;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.95), rgba(88, 166, 255, 0.8));
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.95), rgba(88, 166, 255, 0.9));
   border-radius: 999px;
-  opacity: 0.8;
+  opacity: 0.95;
   transform-origin: left center;
   animation: cometMove 8s linear infinite;
   pointer-events: none;
+  box-shadow: 0 0 14px rgba(88, 166, 255, 0.35);
 }
 
 .comet-trail.one {
-  width: 120px;
+  width: 140px;
   top: 24%;
-  left: 12%;
+  left: 10%;
   transform: rotate(-24deg);
 }
 
 .comet-trail.two {
-  width: 90px;
-  top: 48%;
-  right: 20%;
+  width: 110px;
+  top: 50%;
+  right: 18%;
   transform: rotate(18deg);
   animation-duration: 10s;
 }
 
 .rocket-silhouette {
   position: absolute;
-  right: 4%;
-  bottom: 8%;
-  width: 120px;
-  height: 140px;
-  opacity: 0.8;
-  filter: drop-shadow(0 0 18px rgba(88,166,255,0.25));
+  right: 2%;
+  bottom: 4%;
+  width: 128px;
+  height: 148px;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 20px rgba(88,166,255,0.28));
   pointer-events: none;
 }
 
