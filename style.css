@@ -408,6 +408,20 @@ header p {
   font-size: 1.1rem;
 }
 
+.header-content p {
+  display: inline-block;
+  font-weight: 800;
+  font-size: 1.08rem;
+  letter-spacing: 0.04em;
+  color: #e8f4ff;
+  padding: 0.5rem 0.9rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(88, 166, 255, 0.16), rgba(121, 192, 255, 0.28));
+  border: 1px solid rgba(121, 192, 255, 0.35);
+  box-shadow: 0 0 18px rgba(88, 166, 255, 0.16);
+  text-shadow: 0 0 10px rgba(121, 192, 255, 0.35);
+}
+
 nav {
   display: flex;
   justify-content: center;
